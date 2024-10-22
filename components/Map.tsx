@@ -21,7 +21,7 @@ const Map = () => {
 
   return (
     <MapView style={{ flex: 1 }} styleURL="mapbox://styles/mapbox/dark-v11">
-      <Camera zoomLevel={50} followUserLocation />
+      <Camera zoomLevel={12} followZoomLevel={16} followUserLocation />
       <LocationPuck
         puckBearingEnabled
         puckBearing="heading"
