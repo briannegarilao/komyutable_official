@@ -1,0 +1,113 @@
+📦.expo
+ ┣ 📂types
+ ┃ ┗ 📜router.d.ts
+ ┣ 📂web
+ ┃ ┗ 📂cache
+ ┃ ┃ ┗ 📂production
+ ┃ ┃ ┃ ┗ 📂images
+ ┃ ┃ ┃ ┃ ┣ 📂android-adaptive-foreground
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_108.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_162.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_216.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_324.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜icon_432.png
+ ┃ ┃ ┃ ┃ ┣ 📂android-standard-circle
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_108.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_162.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_216.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_324.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜icon_432.png
+ ┃ ┃ ┃ ┃ ┣ 📂android-standard-square
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_108.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_162.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_216.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜icon_324.png
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜icon_432.png
+ ┃ ┃ ┃ ┃ ┗ 📂splash-android
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂splash-android-bc25a616b4e31cf7300cd97b9cbf8894e855e6373aa797d0badd7e211111c5e5-contain
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜icon_undefined.png
+ ┣ 📜devices.json
+ ┣ 📜packager-info.json
+ ┣ 📜README.md
+ ┗ 📜settings.json
+
+ 📦android
+ ┣ 📂.gradle
+ ┣ 📂app
+ ┣ 📂gradle
+ ┣ 📂react-settings-plugin
+ ┣ 📜.gitignore
+ ┣ 📜build.gradle
+ ┣ 📜gradle.properties
+ ┣ 📜gradlew
+ ┣ 📜gradlew.bat
+ ┗ 📜settings.gradle
+
+📦app
+ ┣ 📜index.tsx
+ ┗ 📜_layout.tsx
+
+📦app-example
+ ┣ 📂(tabs)
+ ┃ ┣ 📜explore.tsx
+ ┃ ┣ 📜index.tsx
+ ┃ ┗ 📜_layout.tsx
+ ┣ 📜+html.tsx
+ ┣ 📜+not-found.tsx
+ ┗ 📜_layout.tsx
+
+📦assets
+ ┣ 📂fonts
+ ┃ ┗ 📜SpaceMono-Regular.ttf
+ ┗ 📂images
+ ┃ ┣ 📜adaptive-icon.png
+ ┃ ┣ 📜favicon.png
+ ┃ ┣ 📜icon.png
+ ┃ ┣ 📜partial-react-logo.png
+ ┃ ┣ 📜react-logo.png
+ ┃ ┣ 📜react-logo@2x.png
+ ┃ ┣ 📜react-logo@3x.png
+ ┃ ┗ 📜splash.png
+
+📦components
+ ┣ 📂navigation
+ ┃ ┗ 📜TabBarIcon.tsx
+ ┣ 📂__tests__
+ ┃ ┣ 📂__snapshots__
+ ┃ ┃ ┗ 📜ThemedText-test.tsx.snap
+ ┃ ┗ 📜ThemedText-test.tsx
+ ┣ 📜Collapsible.tsx
+ ┣ 📜ExternalLink.tsx
+ ┣ 📜HelloWave.tsx
+ ┣ 📜Map.tsx
+ ┣ 📜ParallaxScrollView.tsx
+ ┣ 📜ThemedText.tsx
+ ┗ 📜ThemedView.tsx
+
+📦constants
+ ┗ 📜Colors.ts
+
+📦hooks
+ ┣ 📜useColorScheme.ts
+ ┣ 📜useColorScheme.web.ts
+ ┗ 📜useThemeColor.ts
+
+📦node_modules
+ ┣ 📜"I didn't include this folder because it's too big"
+
+
+📦scripts
+ ┗ 📜reset-project.js
+
+.env
+.gitignore
+app.json
+babel.config.js
+expo-env.d.ts
+package-lock.json
+package.json
+README.md
+tsconfig.json
