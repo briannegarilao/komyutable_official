@@ -96,7 +96,7 @@ const Map = () => {
           <LineLayer
             id="exampleLineLayer"
             style={{
-              lineColor: "#42A2D9",
+              lineColor: "#A020F0",
               lineCap: "round",
               lineJoin: "round",
               lineWidth: 7,
