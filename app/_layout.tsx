@@ -7,6 +7,7 @@ export default function RootLayout() {
       style={{
         flex: 1,
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        backgroundColor: "#000",
       }}
     >
       <Stack screenOptions={{ headerShown: false }}>
