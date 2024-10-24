@@ -17,8 +17,6 @@ const Map = () => {
   // send request permision to use location
   useLocationPermission();
 
-  // ------------------------------------------------------------------------------------------------
-
   return (
     // MAIN MAP: START
     <MapView style={{ flex: 1 }} styleURL="mapbox://styles/mapbox/dark-v11">
