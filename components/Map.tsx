@@ -37,7 +37,15 @@ const Map = () => {
     }))
   );
 
-  const [direction, setDirection] = useState();
+  interface Direction {
+    routes?: Array<{
+      geometry: {
+        coordinates: [number, number][];
+      };
+    }>;
+  }
+
+  const [direction, setDirection] = useState<Direction | undefined>();
 
   const directionCoordinate = direction?.routes?.[0]?.geometry.coordinates;
 
