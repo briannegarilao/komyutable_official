@@ -1,61 +1,65 @@
-import React, { useEffect } from "react";
-import { PermissionsAndroid } from "react-native";
+import React, { useState } from "react";
 import MapBox, {
   MapView,
   Camera,
   LocationPuck,
   ShapeSource,
+  LineLayer,
   SymbolLayer,
   Images,
-  LineLayer,
 } from "@rnmapbox/maps";
 import { featureCollection, point } from "@turf/helpers";
+import useLocationPermission from "../hooks/useLocationPermission";
+import { getDirections } from "../services/directions";
+import { OnPressEvent } from "@rnmapbox/maps/lib/typescript/src/types/OnPressEvent";
+import * as Location from "expo-location";
 
-// FILE IMPORTS
+// file imports
 import route from "../data/route.json";
-
-// THIS IS FOR THE MAPBOX ACCESS TOKEN
+import endPointData from "../data/end_point.json";
+// this is for the mapbox access token
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
-// THIS IS FOR THE BUS PIN IMAGE
-const pin = require("../assets/images/bus_pin.png");
-
-// ------------------------------------------------------------------------------------------------
+// this is for the bus pin image
+const pin = require("../assets/images/bus_pin_btn.png");
 
 // MAIN COMPONENT
 const Map = () => {
-  // ------------------------------------------------------------------------------------------------
+  // constants
+  const bussesFeatures = featureCollection(
+    endPointData.map(({ id, lat, long }) => ({
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [lat, long],
+      },
+      properties: { id },
+    }))
+  );
 
-  // CONSTANTS
-  const bussesFeatures = featureCollection([point([120.991097, 14.507376])]);
+  const [direction, setDirection] = useState();
 
-  const directionCoordinate = route.routes[0].geometry.coordinates;
+  const directionCoordinate = direction?.routes?.[0]?.geometry.coordinates;
 
-  // ------------------------------------------------------------------------------------------------
+  const onPointPress = async (event: OnPressEvent) => {
+    const myLocation = await Location.getCurrentPositionAsync();
 
-  // THIS IS FOR THE MAP PERMISSION: START
-  const requestLocationPermission = async () => {
-    try {
-      await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-      );
-    } catch (err) {
-      console.warn(err);
-    }
+    const newDirection = await getDirections(
+      [myLocation.coords.longitude, myLocation.coords.latitude],
+      [event.coordinates.longitude, event.coordinates.latitude]
+    );
+    setDirection(newDirection);
   };
 
-  useEffect(() => {
-    requestLocationPermission();
-  }, []);
-
-  // END OF MAP PERMISSION
+  // send request permision to use location
+  useLocationPermission();
 
   // ------------------------------------------------------------------------------------------------
 
   return (
     // MAIN MAP: START
     <MapView style={{ flex: 1 }} styleURL="mapbox://styles/mapbox/dark-v11">
-      <Camera zoomLevel={12} followZoomLevel={17} followUserLocation />
+      <Camera zoomLevel={12} followZoomLevel={13} followUserLocation />
       <LocationPuck
         puckBearingEnabled
         puckBearing="heading"
@@ -63,16 +67,16 @@ const Map = () => {
       />
 
       {/* BUS PIN */}
-      <ShapeSource id="busses" shape={bussesFeatures}>
+      <ShapeSource id="busses" shape={bussesFeatures} onPress={onPointPress}>
         <SymbolLayer
           id="symbolLocationSymbols"
           minZoomLevel={1}
           style={{
             iconImage: "pin",
             iconAllowOverlap: true,
-            iconSize: 0.04,
+            iconSize: 0.2,
             iconAnchor: "bottom",
-            visibility: "none", // Use 'visible' or 'none' to control visibility
+            visibility: "visible", // Use 'visible' or 'none' to control visibility
           }}
         />
 
