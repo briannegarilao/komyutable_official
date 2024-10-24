@@ -1,33 +1,58 @@
-import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+} from "react-native";
 
 const Bus_item = () => {
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/images/bus_pin_btn.png")}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <View style={styles.textContainer}>
-        <Text style={styles.busName}>BUS NAME</Text>
-        <Text style={styles.timeText}>Time from destination</Text>
+    <TouchableHighlight
+      onPressIn={() => setIsPressed(true)}
+      onPressOut={() => setIsPressed(false)}
+      underlayColor="#4687c7"
+      style={styles.touchable}
+    >
+      <View style={[styles.container, isPressed && styles.containerPressed]}>
+        <Image
+          source={require("../assets/images/bus_pin_btn.png")}
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <View style={styles.textContainer}>
+          <Text style={[styles.busName, isPressed && styles.textPressed]}>
+            BUS NAME
+          </Text>
+          <Text style={[styles.timeText, isPressed && styles.textPressed]}>
+            Time from destination
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
+  touchable: {
+    backgroundColor: "white",
+  },
   container: {
     flexDirection: "row",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "white", // Added white background
+    backgroundColor: "white",
+    gap: 8,
+  },
+  containerPressed: {
+    backgroundColor: "#4687c7",
   },
   image: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
+    width: 50,
+    height: 50,
   },
   textContainer: {
     flexDirection: "column",
@@ -38,6 +63,9 @@ const styles = StyleSheet.create({
   },
   timeText: {
     color: "#666",
+  },
+  textPressed: {
+    color: "white",
   },
 });
 

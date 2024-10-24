@@ -1,10 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
+import { View, StyleSheet, Dimensions, Text } from "react-native";
 import Bus_item from "./Bus_item";
 
 const Bus_list = () => {
   return (
     <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Bus Routes</Text>
+      </View>
       <Bus_item />
       <Bus_item />
       <Bus_item />
@@ -17,6 +20,21 @@ const Bus_list = () => {
 const styles = StyleSheet.create({
   container: {
     width: Dimensions.get("window").width,
+    overflow: "hidden",
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    backgroundColor: "white",
+  },
+  headerContainer: {
+    width: "100%",
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: "#1967B2",
+  },
+  headerText: {
+    fontSize: 16,
   },
 });
 
