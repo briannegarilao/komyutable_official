@@ -3,11 +3,13 @@ import { ShapeSource, SymbolLayer, Images } from "@rnmapbox/maps";
 
 const pin = require("../assets/images/bus_pin_btn.png");
 
+// Props for BusPin component
 interface BusPinProps {
-  bussesFeatures: any;
-  onPointPress: (event: any) => void;
+  bussesFeatures: any; // Features for bus pins
+  onPointPress: (event: any) => void; // Point press handler
 }
 
+// Bus pin component
 const BusPin: React.FC<BusPinProps> = ({ bussesFeatures, onPointPress }) => (
   <ShapeSource id="busses" shape={bussesFeatures} onPress={onPointPress}>
     <SymbolLayer
@@ -18,11 +20,12 @@ const BusPin: React.FC<BusPinProps> = ({ bussesFeatures, onPointPress }) => (
         iconAllowOverlap: true,
         iconSize: 0.2,
         iconAnchor: "bottom",
-        visibility: "visible", // Use 'visible' or 'none' to control visibility
+        visibility: "visible", // Control visibility
       }}
     />
     <Images images={{ pin }} />
   </ShapeSource>
 );
 
+// Export BusPin component
 export default BusPin;

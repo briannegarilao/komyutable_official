@@ -7,9 +7,7 @@ const useLocationPermission = () => {
       await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
       );
-    } catch (err) {
-      console.warn(err);
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {

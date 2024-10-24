@@ -7,12 +7,14 @@ import {
   Animated,
 } from "react-native";
 
+// Props for MainBusBtn component
 interface MainBusBtnProps {
-  onPress: () => void;
+  onPress: () => void; // Press handler
 }
 
+// Main bus button component
 const Main_bus_btn: React.FC<MainBusBtnProps> = ({ onPress }) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Animation value
 
   useEffect(() => {
     const fadeIn = Animated.timing(fadeAnim, {
@@ -54,6 +56,7 @@ const Main_bus_btn: React.FC<MainBusBtnProps> = ({ onPress }) => {
   );
 };
 
+// Styles for MainBusBtn component
 const styles = StyleSheet.create({
   container: {
     position: "relative",
@@ -67,4 +70,5 @@ const styles = StyleSheet.create({
   },
 });
 
+// Export MainBusBtn component
 export default Main_bus_btn;

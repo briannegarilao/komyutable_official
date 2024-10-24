@@ -1,13 +1,23 @@
+import React, { useState, useEffect } from "react";
 import MapBox, { MapView, Camera, LocationPuck } from "@rnmapbox/maps";
 import useLocationPermission from "../hooks/useLocationPermission";
-import React from "react";
+import RouteShape from "./RouteShape";
+import { getDirections } from "../services/directions";
+import useFetchRoutes from "../hooks/useFetchRoutes";
+import useRouteCoordinates from "../hooks/useRouteCoordinates";
 
-// this is for the mapbox access token
+// Set the MapBox access token using an environment variable
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
 const Map = () => {
-  // send request permision to use location
+  // Request permission to use location
   useLocationPermission();
+
+  // Fetch routes using the custom hook
+  const coordinates: [number, number][] = useFetchRoutes() || [];
+
+  // Use the new custom hook
+  const routeCoordinates = useRouteCoordinates(coordinates);
 
   return (
     <MapView style={{ flex: 1 }} styleURL="mapbox://styles/mapbox/dark-v11">
@@ -17,6 +27,9 @@ const Map = () => {
         puckBearing="heading"
         pulsing={{ isEnabled: true }}
       />
+      {routeCoordinates.length > 0 && (
+        <RouteShape coordinates={routeCoordinates} />
+      )}
     </MapView>
   );
 };

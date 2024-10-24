@@ -1,22 +1,30 @@
 import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const Bus_item = () => {
+interface BusItemProps {
+  busRouteName: string;
+  estimatedTime: string;
+}
+
+const Bus_item: React.FC<BusItemProps> = ({ busRouteName, estimatedTime }) => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/images/bus_pin_btn.png")}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <View style={styles.textContainer}>
-        <Text style={styles.busName}>Bus Route</Text>
-        <Text style={styles.timeText}>Estimated time</Text>
+    <TouchableOpacity>
+      <View style={styles.container}>
+        <Image
+          source={require("../assets/images/bus_pin_btn.png")}
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.busName}>{busRouteName}</Text>
+          <Text style={styles.timeText}>{estimatedTime}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
+// Styles for BusItem component
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",

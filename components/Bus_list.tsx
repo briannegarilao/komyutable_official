@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Dimensions, Text } from "react-native";
 import Bus_item from "./Bus_item";
+import useFetchRoutes from "../hooks/useFetchRoutes";
 
 const Bus_list = () => {
   return (
@@ -8,11 +9,8 @@ const Bus_list = () => {
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Bus Routes</Text>
       </View>
-      <Bus_item />
-      <Bus_item />
-      <Bus_item />
-      <Bus_item />
-      <Bus_item />
+
+      <Bus_item busRouteName="Route 01" estimatedTime={"mins"} />
     </View>
   );
 };
