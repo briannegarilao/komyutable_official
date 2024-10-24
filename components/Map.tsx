@@ -15,8 +15,8 @@ import { OnPressEvent } from "@rnmapbox/maps/lib/typescript/src/types/OnPressEve
 import * as Location from "expo-location";
 
 // file imports
-import route from "../data/route.json";
 import endPointData from "../data/end_point.json";
+
 // this is for the mapbox access token
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
