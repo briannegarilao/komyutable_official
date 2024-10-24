@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.briannegarilao.komyutable_official"
+      "package": "com.komyutable_official"
     },
     "web": {
       "bundler": "metro",

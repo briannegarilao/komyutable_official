@@ -1,4 +1,4 @@
-package com.briannegarilao.komyutable_official
+package com.komyutable_official
 
 import android.os.Build
 import android.os.Bundle
